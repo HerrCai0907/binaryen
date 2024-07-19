@@ -182,6 +182,7 @@ Pass* createTypeUnFinalizingPass();
 Pass* createUnsubtypingPass();
 Pass* createUnteePass();
 Pass* createVacuumPass();
+Pass* createMostUsedGlobalPass();
 
 // Test passes:
 Pass* createCatchPopFixupPass();

@@ -1319,6 +1319,7 @@ public:
   void writeCustomSection(const CustomSection& section);
   void writeFeaturesSection();
   void writeDylinkSection();
+  void writeMostUsedGlobal();
   void writeLegacyDylinkSection();
 
   void initializeDebugInfo();

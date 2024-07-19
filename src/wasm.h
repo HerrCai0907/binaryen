@@ -2222,6 +2222,11 @@ public:
   std::vector<char> data;
 };
 
+class MostUsedGlobal {
+public:
+  uint32_t globalIndex;
+};
+
 // The optional "dylink" section is used in dynamic linking.
 class DylinkSection {
 public:
@@ -2250,6 +2255,8 @@ public:
 
   // Optional user section IR representation.
   std::unique_ptr<DylinkSection> dylinkSection;
+
+  std::unique_ptr<MostUsedGlobal> mostUsedGlobal;
 
   // Source maps debug info.
   std::vector<std::string> debugInfoFileNames;

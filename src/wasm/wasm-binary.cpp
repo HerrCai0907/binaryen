@@ -16,6 +16,7 @@
 
 #include <algorithm>
 #include <fstream>
+#include <iostream>
 
 #include "ir/eh-utils.h"
 #include "ir/module-utils.h"
@@ -50,6 +51,8 @@ void WasmBinaryWriter::write() {
   writeHeader();
 
   writeDylinkSection();
+
+  writeMostUsedGlobal();
 
   initializeDebugInfo();
   if (sourceMap) {
@@ -1397,6 +1400,17 @@ void WasmBinaryWriter::writeDylinkSection() {
   }
 
   writeData(wasm->dylinkSection->tail.data(), wasm->dylinkSection->tail.size());
+  finishSection(start);
+}
+
+void WasmBinaryWriter::writeMostUsedGlobal() {
+  if (!wasm->mostUsedGlobal) {
+    return;
+  }
+  auto start = startSection(BinaryConsts::Custom);
+  writeInlineString("most.used.global");
+  std::cout << "most.used.global " << wasm->mostUsedGlobal->globalIndex << "\n";
+  o << U32LEB(wasm->mostUsedGlobal->globalIndex);
   finishSection(start);
 }
 

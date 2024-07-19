@@ -548,6 +548,9 @@ void PassRegistry::registerPasses() {
                "removes local.tees, replacing them with sets and gets",
                createUnteePass);
   registerPass("vacuum", "removes obviously unneeded code", createVacuumPass);
+  registerPass("most-used-global",
+               "create custom section for most used global pass",
+               createMostUsedGlobalPass);
   // registerPass(
   //   "lower-i64", "lowers i64 into pairs of i32s", createLowerInt64Pass);
 

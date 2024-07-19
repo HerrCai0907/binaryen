@@ -68,6 +68,7 @@ set(passes_SOURCES
   Metrics.cpp
   MinifyImportsAndExports.cpp
   Monomorphize.cpp
+  MostUsedGloabl.cpp
   MultiMemoryLowering.cpp
   NameList.cpp
   NameTypes.cpp
